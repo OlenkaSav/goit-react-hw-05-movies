@@ -9,7 +9,7 @@ export const Cast = () => {
   const [loaderActive, setLoaderActive] = useState(false);
   const { movieId } = useParams();
 
-  console.log(movieId);
+  // console.log(movieId);
   useEffect(() => {
     const getData = async () => {
       try {

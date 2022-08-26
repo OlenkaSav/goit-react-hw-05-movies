@@ -27,11 +27,12 @@ export const MovieInfo = () => {
     return;
   }
   const { original_title, overview, vote_average, poster_path, genres } = item;
-  console.log(genres);
   const genresStr = genres.reduce((str, genre) => {
     return str + `${genre.name}, `;
   }, '');
   const genresStrFinal = genresStr.slice(0, genresStr.length - 2);
+  const from = location.state?.from || '/';
+  console.log(location);
   return (
     <>
       {item && (
@@ -55,10 +56,14 @@ export const MovieInfo = () => {
           </MovieCard>
           <ul>
             <li>
-              <Link to="cast">Cast</Link>
+              <Link to="cast" state={{ from }}>
+                Cast
+              </Link>
             </li>
             <li>
-              <Link to="reviews">Reviews</Link>
+              <Link to="reviews" state={{ from }}>
+                Reviews
+              </Link>
             </li>
           </ul>
           <Outlet />
